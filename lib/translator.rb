@@ -15,7 +15,7 @@ def load_library(link)
 end
 
 def get_japanese_emoticon(file_path,emoticon)
-  binding.pry
+  #binding.pry
   translater = load_library(file_path)
   if !translater["get_emoticon"][emoticon]
     return "Sorry, that emoticon was not found"
