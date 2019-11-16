@@ -26,10 +26,10 @@ end
 
 def get_english_meaning(file_path,emoticon)
   englishenater = load_library(file_path)
-  if englishenater["get_meaning"][emoticon]
-  else
-     !englishenater["get_emoticon"][emoticon]
+  if !englishenater["get_emoticon"][emoticon]
     return "Sorry, that emoticon was not found"
+  else 
+    return englishenater["get_meaning"][emoticon]
   end
   # code goes here
 end
