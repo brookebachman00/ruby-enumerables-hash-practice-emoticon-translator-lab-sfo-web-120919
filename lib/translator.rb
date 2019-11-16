@@ -15,11 +15,12 @@ def load_library(link)
 end
 
 def get_japanese_emoticon(file_path,emoticon)
+  def get_japanese_emoticon(file_path,emoticon)
   translater = load_library(file_path)
-  if translater["get_emoticon"][emoticon]
-  else
-    !translater["get_emoticon"][emoticon]
+  if !translater["get_emoticon"][emoticon]
     return " Sorry the emoticon was not found"
+  else
+   return translater["get_emoticon"][emoticon]
   end
 end
 
