@@ -16,19 +16,19 @@ end
 
 def get_japanese_emoticon(file_path,emoticon)
   translater = load_library(file_path)
-  translater["get_emoticon"][emoticon]
-  # if !translater["get_emoticon"][emoticon]
-  #   return " Sorry the emoticon was not found"
-  # end
-
-  # code goes here
+  if translater["get_emoticon"][emoticon]
+  else 
+    !translater["get_emoticon"][emoticon]
+    return " Sorry the emoticon was not found"
+  end
 end
 
 def get_english_meaning(file_path,emoticon)
   englishenater = load_library(file_path)
-  englishenater["get_meaning"][emoticon]
-  # if !translater["get_emoticon"][emoticon]
-  #   return " Sorry the emoticon was not found"
-  # end
+  if englishenater["get_meaning"][emoticon]
+  else
+     !translater["get_emoticon"][emoticon]
+    return " Sorry the emoticon was not found"
+  end
   # code goes here
 end
