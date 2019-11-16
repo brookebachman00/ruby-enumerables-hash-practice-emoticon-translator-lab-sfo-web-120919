@@ -1,13 +1,34 @@
-# require modules here
+  require 'yaml'
+  require 'pry'
 
-def load_library
+def load_library(link)
+  hash = {}
+  hash["get_meaning"] = {}
+  hash["get_emoticon"] = {}
+  # Parse a YAML string
+  file = YAML.load_file(link)
+  file.each do |key, value|
+    hash["get_meaning"][value[1]] = key
+    hash["get_emoticon"][value[0]] = value[1]
+  end
+  return hash
+end
+
+def get_japanese_emoticon(file_path,emoticon)
+  translater = load_library(file_path)
+  translater["get_emoticon"][emoticon]
+  # if !translater["get_emoticon"][emoticon]
+  #   return " Sorry the emoticon was not found"
+  # end
+
   # code goes here
 end
 
-def get_japanese_emoticon
-  # code goes here
-end
-
-def get_english_meaning
+def get_english_meaning(file_path,emoticon)
+  englishenater = load_library(file_path)
+  englishenater["get_meaning"][emoticon]
+  # if !translater["get_emoticon"][emoticon]
+  #   return " Sorry the emoticon was not found"
+  # end
   # code goes here
 end
